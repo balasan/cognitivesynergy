@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+    <title>Cognitive Synergy</title>
+    
+    <meta name="description" content="Analisa Teachworth 2012" />
+    <meta name="author" content="Analisa Teachworth" />
+    
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="window.js"></script>
+
+
+<style type="text/css">
+
+body{
+	margin:0px auto;
+	overflow:hidden;
+}
+
+table.boxed {
+  border-spacing: 2px;
+  empty-cells: hide;
+}
+
+td.boxed, th.boxed, th.boxedHeader {
+  background-color: #ffffff;
+  border-color: #000000;
+  border-style: solid;
+  border-width: 1px;
+  color: #000000;
+  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+th.boxed {
+  background-color: #c0c0c0;
+}
+
+th.boxedHeader {
+  background-color: #808080;
+  color: #ffffff;
+}
+
+  .lastLine {
+    padding-left: 6em;
+  }
+
+.window {
+  background-color: #c0c0c0;
+  border-color: #f0f0f0 #606060 #404040 #d0d0d0;
+  border-style: solid;
+  border-width: 0px;
+  margin: 0px;
+  padding: 2px;
+  position: absolute;
+  text-align: left;
+  visibility: hidden;
+}
+
+.titleBar {
+  background-color: none;
+  cursor: default;
+  color: white;
+  font-weight:bold;
+  font-family: "Helvetica", sans-serif;
+  font-size: 7pt;
+  margin: 0px;
+  padding: opx;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.titleBarText {
+  float: left;
+  padding-left:6px;
+  padding-top:2px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.titleBarButtons {
+  border-style: none;
+  border-width: 0px;
+  vertical-align: middle;
+  width: 50px;
+  height: 14px;
+}
+
+.clientArea {
+  background-color: #ffffff;
+  border-color: #404040 #e0e0e0 #f0f0f0 #505050;
+  border-style: solid;
+  border-width: 0px;
+  color: #000000;
+  font-family: "Helvetica", sans-serif;
+  font-size: 10pt;
+  margin: 2px 0px 0px 0px;
+  overflow: auto;
+  padding: .5em;
+}
+
+#wheel{
+z-index:1;
+width:100%;
+height:100%;
+position:absolute:
+top:0px;
+left:0px;
+border:none !important
+}
+
+#wheelframe{
+z-index:1;
+width:100%;
+height:100%;
+position:absolute:
+top:0px;
+left:0px;
+border:none !important
+}
+
+#vid{
+position:absolute;
+z-index:2;
+}
+
+#vid_nav{
+z-index:200;
+position:absolute;
+bottom:20px;
+width:100%;
+}
+
+#wheel iframe{
+border:none !important;
+}
+
+#note{
+font-size:8px;
+position:absolute;
+bottom:0px;
+right:0px;
+padding:5px;
+}
+
+#dialog-overlay {
+
+	/* set it to fill the whil screen */
+	width:100%; 
+	height:100%;
+	
+	/* transparency for different browsers */
+	filter:alpha(opacity=50); 
+	-moz-opacity:0.5; 
+	-khtml-opacity: 0.5; 
+	opacity: 0.5; 
+	background:#000; 
+
+	/* make sure it appear behind the dialog box but above everything else */
+	position:absolute; 
+	top:0; left:0; 
+	z-index:3000; 
+
+	/* hide it by default */
+	display:none;
+}
+
+
+#dialog-box {
+	
+	/* css3 drop shadow */
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	
+	/* css3 border radius */
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	
+	background:#eee;
+	/* styling of the dialog box, i have a fixed dimension for this demo */ 
+	width:328px; 
+	
+	/* make sure it has the highest z-index */
+	position:absolute; 
+	z-index:5000; 
+
+	/* hide it by default */
+	display:none;
+}
+
+#dialog-box .dialog-content {
+	/* style the content */
+	text-align:left; 
+	padding:10px; 
+	margin:13px;
+	color:#666; 
+	font-family:arial;
+	font-size:11px; 
+}
+
+a.button {
+	/* styles for button */
+	margin:10px auto 0 auto;
+	text-align:center;
+	background-color: grey;
+	display: block;
+	width:50px;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	
+	/* css3 implementation :) */
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+	
+}
+
+a.button:hover {
+	background-color: blue;	
+}
+
+/* extra styling */
+#dialog-box .dialog-content p {
+	font-weight:700; margin:0;
+}
+
+#dialog-box .dialog-content ul {
+	margin:10px 0 10px 20px; 
+	padding:0; 
+	height:50px;
+}
+
+</style>
+
+</head>
+<body onload="popup('<center><p>Please be patient..its loading!<br><br>This site has a preference for Firefox </p><br></center>')" >
+
+<!-- Normal page content. -->
+
+<div id="vid_nav">
+<center>
+<p>
+<a href="http://twitter.com/existingself" target="_blank"><img src="1.jpg" width="80px"></a>
+<a href="http://cognitivesynergy.net/brief.html" target="_blank"><img src="2.jpg" width="80px"></a>
+<a href="http://player.vimeo.com/video/37492746?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" target="_blank"><img src="4.jpg" width="80px"></a>
+<a href="http://player.vimeo.com/video/39163979?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" target="_blank"><img src="3.jpg" width="80px"></a>
+<a href="http://player.vimeo.com/video/37492661?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" target="_blank"><img src="5.jpg" width="80px"></a>
+<a href="combo.jpg" target="_blank"><img src="6.jpg" width="80px"></a>
+<a href="http://player.vimeo.com/video/38725614?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" target="_blank"><img src="7.jpg" width="80px"></a>
+<a href="http://player.vimeo.com/video/37560788?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" target="_blank"><img src="8.jpg" width="80px"></a>
+<a href="http://player.vimeo.com/video/39156345?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" target="_blank"><img src="9.jpg" width="80px"></a>
+<a href="ted.pdf" target="_blank" ><img src="10.jpg" width="80px"></a>
+</p>
+</center>
+</div>
+<div id="vid">
+<!-- Condition diet -->
+
+<div id="three" class="window" style="left:90px;top:90px;width:519px;">
+  <div class="titleBar">
+    <span class="titleBarText">Condition diet </span>
+    <img class="titleBarButtons" alt="" src="buttons.gif" usemap="#sampleMap3" width="50" height="14" />
+    <map id="sampleMap3" name="sampleMap3">
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close"    onclick="this.parentWindow.minimize();this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:284px;">
+<iframe src="http://player.vimeo.com/video/39163979?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div></div></div>
+
+
+
+<!-- Our secret, Is no sceret -->
+
+<div id="four" class="window" style="left:110px;top:110px;width:519px;">
+  <div class="titleBar">
+    <span class="titleBarText">Our secret, Is no secret</span>
+    <img class="titleBarButtons" alt="" src="buttons.gif" usemap="#sampleMap4" width="50" height="14" />
+    <map id="sampleMap4" name="sampleMap4">
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close" onclick="this.parentWindow.minimize();this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:284px;">
+<iframe src="http://player.vimeo.com/video/37492746?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>  </div>
+    </div></div></div>
+
+<!-- End Captivity -->
+
+<div id="five" class="window" style="left:120px;top:120px;width:519px;">
+  <div class="titleBar">
+    <span class="titleBarText">End captivity</span>
+    <img class="titleBarButtons" alt="" src="buttons.gif" usemap="#sampleMap5" width="50" height="14" />
+    <map id="sampleMap5" name="sampleMap5">
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close" onclick="this.parentWindow.minimize();this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:284px;">
+<iframe src="http://player.vimeo.com/video/37492661?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+    </div></div></div>
+
+<!-- Liminality -->
+
+<div id="six" class="window" style="left:130px;top:130px;width:519px;">
+  <div class="titleBar">
+    <span class="titleBarText">Liminality</span>
+    <img class="titleBarButtons" alt="" src="buttons.gif" usemap="#sampleMap6" width="50" height="14" />
+    <map id="sampleMap6" name="sampleMap6">
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close" onclick="this.parentWindow.minimize();this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:284px;">
+<img width="490px" src="combo.jpg">
+</div></div></div>
+
+<!-- Dawning -->
+
+<div id="seven" class="window" style="left:140px;top:140px;width:519px;">
+  <div class="titleBar">
+    <span class="titleBarText">Dawning</span>
+    <img class="titleBarButtons" alt="" src="buttons.gif" usemap="#sampleMap7" width="50" height="14" />
+    <map id="sampleMap7" name="sampleMap7">
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close" onclick="this.parentWindow.minimize();this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:284px;">
+<iframe src="http://player.vimeo.com/video/38725614?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+    </div></div></div>
+
+<!-- Dusking -->
+
+<div id="eight" class="window" style="left:150px;top:150px;width:519px;">
+  <div class="titleBar">
+    <span class="titleBarText">Dusking</span>
+    <img class="titleBarButtons" alt="" src="buttons.gif" usemap="#sampleMap8" width="50" height="14" />
+    <map id="sampleMap8" name="sampleMap8">
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close" onclick="this.parentWindow.minimize();this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:284px;">
+<iframe src="http://player.vimeo.com/video/37560788?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+    </div></div></div>
+
+<!-- Outcomes TED -->
+
+<div id="nine" class="window" style="left:160px;top:160px;width:519px;">
+  <div class="titleBar">
+    <span class="titleBarText">Outcomes TED</span>
+    <img class="titleBarButtons" alt="" src="buttons.gif" usemap="#sampleMap9" width="50" height="14" />
+    <map id="sampleMap9" name="sampleMap9">
+      <area shape="rect" coords="34,0,49,13" href="" alt="" title="Close" onclick="this.parentWindow.minimize();this.parentWindow.close();return false;" />
+    </map>
+  </div>
+  <div class="clientArea" style="height:284px;">
+<iframe src="http://player.vimeo.com/video/39156345?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0" width="500" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+    </div></div></div>
+
+</div>
+
+<div id="wheel">
+<iframe src="existingself/index.html" height="800px" border="0px" width="100%"></iframe>
+</div>
+
+<div id="note">
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+	// if user clicked on button, the overlay layer or the dialogbox, close the dialog	
+	$('a.btn-ok, #dialog-overlay, #dialog-box').click(function () {		
+		$('#dialog-overlay, #dialog-box').hide();		
+		return false;
+	});
+	
+	// if user resize the window, call the same function again
+	// to make sure the overlay fills the screen and dialogbox aligned to center	
+	$(window).resize(function () {
+		
+		//only do it if the dialog box is not hidden
+		if (!$('#dialog-box').is(':hidden')) popup();		
+	});	
+	
+	
+});
+
+//Popup dialog
+function popup(message) {
+		
+	// get the screen height and width  
+	var maskHeight = $(document).height();  
+	var maskWidth = $(window).width();
+	
+	// calculate the values for center alignment
+	var dialogTop =  (maskHeight/3) - ($('#dialog-box').height());  
+	var dialogLeft = (maskWidth/2) - ($('#dialog-box').width()/2); 
+	
+	// assign values to the overlay and dialog box
+	$('#dialog-overlay').css({height:maskHeight, width:maskWidth}).show();
+	$('#dialog-box').css({top:dialogTop, left:dialogLeft}).show();
+	
+	// display the message
+	$('#dialog-message').html(message);
+			
+}
+
+</script>
+<div id="dialog-overlay"></div>
+<div id="dialog-box">
+	<div class="dialog-content">
+		<div id="dialog-message"></div>
+		<a href="#" class="button">Close</a>
+	</div>
+</div>
+</body>
+</html>
