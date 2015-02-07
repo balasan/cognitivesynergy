@@ -144,7 +144,7 @@ body     { pointer-events: none; }
     opacity: 0.03;
 }
 
-@-webkit-keyframes colormorph  {
+/*@-webkit-keyframes colormorph  {
 0% {background-color: #0958f0;}
 100% {background-color: #ff0000;}
 }
@@ -152,7 +152,7 @@ body     { pointer-events: none; }
 @keyframes colormorph  {
 0% {background-color: #0958f0;}
 100% {background-color: #ff0000;}
-}
+}*/
 
 .step:not(.active) p, .step:not(.active) h1 {
 color: #62a7de;
