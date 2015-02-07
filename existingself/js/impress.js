@@ -163,7 +163,7 @@
         var props = {
             position: "absolute",
             transformOrigin: "top left",
-            transition: "all 0s ease-in-out",
+            transition: "transform 0s ease-in-out",
             transformStyle: "preserve-3d"
         }
         
@@ -187,7 +187,10 @@
             return !!(el && el.id && stepData["impress-" + el.id]);
         }
         
-        steps.forEach(function ( el, idx ) {
+        // steps.forEach(function ( el, idx ) {
+
+
+        var doEl =function(el,idx){    
             var data = el.dataset,
                 step = {
                     translate: {
@@ -219,7 +222,22 @@
                 transformStyle: "preserve-3d"
             });
             
-        });
+        };
+
+
+        var i = 0;                     //  set your counter to 1
+
+        function myLoop () {           //  create a loop function
+           setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+              doEl(steps[i],i)
+              i++;                     //  increment the counter
+              if (i < steps.length) {            //  if the counter < 10, call the loop function
+                 myLoop();             //  ..  again which will trigger another 
+              }                        //  ..  setTimeout()
+           }, 1)
+        }
+
+        myLoop();                      //  start the loop
 
         // making given step active
 
@@ -258,7 +276,7 @@
             // causes transtion being laggy
             window.clearTimeout( hashTimeout );
             hashTimeout = window.setTimeout(function () {
-                window.location.hash = "#/" + el.id;
+                // window.location.hash = "#/" + el.id;
             }, 1000);
             
             var target = {
